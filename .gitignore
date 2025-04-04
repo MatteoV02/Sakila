@@ -1,0 +1,63 @@
+# Entorno virtual (evita subir tus dependencias locales)
+venv/
+ENV/
+env/
+.venv/
+flask/
+
+# Archivos de configuración de entorno (API keys, contraseñas, etc.)
+*.env
+.env
+
+# Archivos de caché de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos de log
+*.log
+
+# Archivos temporales
+*.tmp
+*.swp
+*.bak
+*.old
+*.orig
+
+# SQLite u otras BD locales (si existieran)
+*.sqlite3
+*.db
+
+# Archivos de pruebas o desarrollo
+instance/
+tests/__pycache__/
+*.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.spec
+
+# Config de Jupyter o VSCode si lo usas
+.ipynb_checkpoints/
+.vscode/
+.idea/
+
+# Archivos generados por Flask o herramientas de frontend
+static/*.map
+static/node_modules/
+static/build/
+node_modules/
+dist/
+build/
+
+# Otros archivos del sistema o personales
+.DS_Store
+Thumbs.db
+
+# Si estás usando PyCharm
+*.iml
+*.iws
+.idea/
+
+requirements.txt

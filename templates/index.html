@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Rentas de peliculas VHS</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/cyborg/bootstrap.min.css">
+</head>
+<body class="container py-4">
+    <h1 class="mb-4">Registrar nueva renta</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('add_rental') }}">
+        <div class="mb-3">
+            <label for="customer_id" class="form-label">Cliente:</label>
+            <select class="form-select" name="customer_id" required>
+                {% for id, first, last in customers %}
+                    <option value="{{ id }}">{{ first }} {{ last }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="store_id" class="form-label">Tienda:</label>
+            <select class="form-select" name="store_id" required>
+                {% for store in stores %}
+                    <option value="{{ store[0] }}">{{ store[0] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="film_title" class="form-label">Película:</label>
+            <select class="form-select" name="film_title" required>
+                {% for film in films %}
+                    <option value="{{ film[0] }}">{{ film[0] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="rental_date" class="form-label">Fecha de renta:</label>
+            <input type="date" class="form-control" name="rental_date" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Realizar Renta</button>
+    </form>
+</body>
+</html>
